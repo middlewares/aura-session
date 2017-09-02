@@ -2,12 +2,12 @@
 
 namespace Middlewares;
 
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Aura\Session\SessionFactory;
 use Aura\Session\Session;
+use Aura\Session\SessionFactory;
+use Interop\Http\ServerMiddleware\DelegateInterface;
+use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class AuraSession implements MiddlewareInterface
 {
