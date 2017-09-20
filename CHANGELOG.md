@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 * Updated to `http-interop/http-middleware#0.3`
 
-## [0.1.0] - 2016-10-08
+## 0.1.0 - 2016-10-08
 
 First version
 
