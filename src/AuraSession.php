@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 namespace Middlewares;
 
@@ -38,12 +39,8 @@ class AuraSession implements MiddlewareInterface
 
     /**
      * Set the session name.
-     *
-     * @param string $name
-     *
-     * @return self
      */
-    public function name($name)
+    public function name(string $name): self
     {
         $this->name = $name;
 
@@ -52,12 +49,8 @@ class AuraSession implements MiddlewareInterface
 
     /**
      * Set the attribute name to store the sesion instance.
-     *
-     * @param string $attribute
-     *
-     * @return self
      */
-    public function attribute($attribute)
+    public function attribute(string $attribute): self
     {
         $this->attribute = $attribute;
 
@@ -66,13 +59,8 @@ class AuraSession implements MiddlewareInterface
 
     /**
      * Process a server request and return a response.
-     *
-     * @param ServerRequestInterface  $request
-     * @param RequestHandlerInterface $handler
-     *
-     * @return ResponseInterface
      */
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler)
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $factory = $this->factory ?: new SessionFactory();
         $session = $factory->newInstance($request->getCookieParams());
