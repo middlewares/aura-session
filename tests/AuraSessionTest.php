@@ -1,32 +1,48 @@
 <?php
+declare(strict_types = 1);
 
 namespace Middlewares\Tests;
 
+use Aura\Session\Session;
 use Middlewares\AuraSession;
 use Middlewares\Utils\Dispatcher;
-use Middlewares\Utils\Factory;
 use PHPUnit\Framework\TestCase;
 
 class AuraSessionTest extends TestCase
 {
     public function testAuraSession()
     {
-        $request = Factory::createServerRequest();
+        $response = Dispatcher::run(
+            [
+                (new AuraSession())->name('custom-session'),
 
-        $response = (new Dispatcher([
-            (new AuraSession())->name('custom-session'),
-            function ($request) {
-                $session = $request->getAttribute('session');
-                $this->assertInstanceOf('Aura\\Session\\Session', $session);
+                function ($request) {
+                    $session = $request->getAttribute('session');
+                    $this->assertInstanceOf(Session::class, $session);
 
-                $response = Factory::createResponse();
-                $response->getBody()->write($session->getName());
+                    echo $session->getName();
+                },
+            ]
+        );
 
-                return $response;
-            },
-        ]))->dispatch($request);
+        $this->assertEquals('custom-session', (string) $response->getBody());
+    }
 
-        $this->assertInstanceOf('Psr\\Http\\Message\\ResponseInterface', $response);
+    public function testCustomAttribute()
+    {
+        $response = Dispatcher::run(
+            [
+                (new AuraSession())->attribute('my-session'),
+
+                function ($request) {
+                    $session = $request->getAttribute('my-session');
+                    $this->assertInstanceOf(Session::class, $session);
+
+                    echo $session->getName();
+                },
+            ]
+        );
+
         $this->assertEquals('custom-session', (string) $response->getBody());
     }
 }
