@@ -13,7 +13,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 class AuraSession implements MiddlewareInterface
 {
     /**
-     * @var SessionFactory
+     * @var SessionFactory|null
      */
     private $factory;
 
