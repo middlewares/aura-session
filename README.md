@@ -61,9 +61,7 @@ The MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-ga]: https://github.com/middlewares/aura-session/workflows/testing/badge.svg
 [ico-downloads]: https://img.shields.io/packagist/dt/middlewares/aura-session.svg?style=flat-square
-[ico-sensiolabs]: https://img.shields.io/sensiolabs/i/174fe6b4-f522-49e4-9bab-2c7bf212d389.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/middlewares/aura-session
-[link-scrutinizer]: https://scrutinizer-ci.com/g/middlewares/aura-session
 [link-downloads]: https://packagist.org/packages/middlewares/aura-session
 [link-sensiolabs]: https://insight.sensiolabs.com/projects/174fe6b4-f522-49e4-9bab-2c7bf212d389
