@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 class AuraSessionTest extends TestCase
 {
+    /**
+     * @runInSeparateProcess
+     */
     public function testAuraSession()
     {
         $response = Dispatcher::run(
@@ -43,6 +46,6 @@ class AuraSessionTest extends TestCase
             ]
         );
 
-        $this->assertEquals('custom-session', (string) $response->getBody());
+        $this->assertEquals('PHPSESSID', (string) $response->getBody());
     }
 }
