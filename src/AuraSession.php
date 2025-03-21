@@ -32,7 +32,7 @@ class AuraSession implements MiddlewareInterface
      *
      * @param SessionFactory|null $factory
      */
-    public function __construct(SessionFactory $factory = null)
+    public function __construct(?SessionFactory $factory = null)
     {
         $this->factory = $factory;
     }
