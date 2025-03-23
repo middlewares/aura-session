@@ -13,7 +13,7 @@ class AuraSessionTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testAuraSession()
+    public function testAuraSession(): void
     {
         $response = Dispatcher::run(
             [
@@ -31,7 +31,7 @@ class AuraSessionTest extends TestCase
         $this->assertEquals('custom-session', (string) $response->getBody());
     }
 
-    public function testCustomAttribute()
+    public function testCustomAttribute(): void
     {
         $response = Dispatcher::run(
             [
