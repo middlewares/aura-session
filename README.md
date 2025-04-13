@@ -26,7 +26,7 @@ composer require middlewares/aura-session
 
 ```php
 $dispatcher = new Dispatcher([
-	new Middlewares\AuraSession(),
+    new Middlewares\AuraSession(),
 
     function ($request) {
         //get the session object
